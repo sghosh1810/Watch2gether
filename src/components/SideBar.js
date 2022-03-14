@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { Button, ListGroup, OverlayTrigger, Tooltip, Nav, Tab } from "react-bootstrap";
-import { getUrlParameter } from "../custom";
+import { getUrlParameter } from "../custom/custom";
 import { useHistory } from "react-router-dom";
 const SideBar = ({ props, setShowPlaylistModal }) => {
     let history = useHistory();
-    const [couchId, setCouchId] = useState(getUrlParameter("id", props.location.search) || "");
+    const roomId = getUrlParameter("roomId", props.location.search) || "";
     const [peerList, setPeerList] = useState(["test", "hek"]);
     const redirectHome = () => {
         history.push("/");
     };
     useEffect(() => {
-        if (!couchId) {
-            redirectHome();
+        if (!roomId) {
+            history.push("/");
         }
-    }, [couchId]);
+    }, [roomId, history]);
     return (
         <>
             <div className="align-items-center text-center" id="sidebar">
@@ -42,11 +42,11 @@ const SideBar = ({ props, setShowPlaylistModal }) => {
                     </Nav>
                     <Tab.Content>
                         <Tab.Pane label="info-tabs-tabpane-Info" eventKey="Info">
-                            <OverlayTrigger key="top" placement="top" overlay={<Tooltip>Couch ID: {couchId}</Tooltip>}>
+                            <OverlayTrigger key="top" placement="top" overlay={<Tooltip>Couch ID: {roomId}</Tooltip>}>
                                 <div className="mt-2 w-100">
                                     <ListGroup as="ul">
                                         <ListGroup.Item variant="success" className="py-2" as="li">
-                                            {couchId}
+                                            {roomId}
                                         </ListGroup.Item>
                                     </ListGroup>
                                 </div>

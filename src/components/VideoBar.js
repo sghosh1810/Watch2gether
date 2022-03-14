@@ -2,8 +2,7 @@ import React, { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { removeFromPlaylist } from "../actions/playListActions";
 import store from "../store";
-import VideoJs from "./VideoJs";
-
+import VideoJs from "./VideoJS/VideoJs";
 const VideoBar = ({ props }) => {
     const playerRef = useRef(null);
     const dispatch = useDispatch();

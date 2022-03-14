@@ -214,3 +214,83 @@
         padding: 0.5rem 1rem;
     }
 }
+/* Menu Css */
+.menu-parent {
+    max-width: 100%;
+}
+
+/*Home Page*/
+#splashContainer {
+    display: flex;
+    flex-direction: column;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    justify-content: space-between;
+    min-height: 100vh;
+
+    background: #232526; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #414345, #232526); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+#splashContainer > * {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+#nicknameContainer {
+    min-height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #232526; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #414345, #232526); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+@media only screen and (min-device-width: 600px) and (orientation: landscape) {
+    #splashContainer {
+        min-height: calc(100vh - 80px);
+        display: grid;
+        grid-template-rows:
+            auto minmax(1rem, 1fr) minmax(max-content, 40vh) minmax(1rem, 1fr)
+            auto;
+        grid-template-columns:
+            minmax(0px, 10vw) minmax(auto, 1fr) 1rem minmax(auto, 1fr)
+            minmax(0px, 10vw);
+        grid-template-areas:
+            "h h h h h"
+            "gt gt gt gt gt"
+            "gl host gc connect gr"
+            "gb gb gb gb gb"
+            "f f f f f";
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    #splashContainer > * {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    #header {
+        grid-area: h;
+    }
+
+    #card_host {
+        grid-area: host;
+    }
+
+    #card_connect {
+        grid-area: connect;
+    }
+
+    #footer {
+        grid-area: f;
+    }
+}
+hr {
+    border: 1px solid #375a7f;
+}
+.border-primary {
+    border: 1px solid #414141 !important;
+}
